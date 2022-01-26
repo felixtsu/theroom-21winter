@@ -86,5 +86,10 @@
             "myTile.shengyou_tile11"
         ],
         "displayName": "shengyou_level1"
+    },
+       "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myTiles"
     }
 }
