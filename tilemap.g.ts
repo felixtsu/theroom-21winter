@@ -45,7 +45,7 @@ namespace myTiles {
 2 . . . . . . . . . . . . . . 2 
 2 . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
-`, [myTiles.transparency16,sprites.castle.tileGrass1,myTiles.tile1,myTiles.tile2,myTiles.tile3,myTiles.tile7,sprites.castle.tilePath5,sprites.swamp.swampTile2,myTiles.tile6,sprites.builtin.forestTiles0,sprites.swamp.swampTile1,sprites.castle.tileGrass3,sprites.builtin.forestTiles3,myTiles.tile11], TileScale.Sixteen);
+`, [myTiles.transparency16,sprites.castle.tileGrass1,myTiles.shengyou_tile1,myTiles.shengyou_tile2,myTiles.shengyou_tile3,myTiles.shengyou_tile7,sprites.castle.tilePath5,sprites.swamp.swampTile2,myTiles.shengyou_tile6,sprites.builtin.forestTiles0,sprites.swamp.swampTile1,sprites.castle.tileGrass3,sprites.builtin.forestTiles3,myTiles.shengyou_tile11], TileScale.Sixteen);
         }
         return null;
     })
