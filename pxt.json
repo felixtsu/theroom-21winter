@@ -1,0 +1,33 @@
+{
+    "name": "theRoom.21winter",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "怪物血量插件": "pub:84642-74074-15359-68871",
+        "cubicbird-game-jam": "github:felixtsu/cubicbird-game-jam#v0.1.0",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "jason.ts",
+        "shengyou.ts",
+        "images.g.jres",
+        "images.g.ts",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.7.24",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
+}
