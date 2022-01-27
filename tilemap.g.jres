@@ -88,7 +88,9 @@
             "sprites.swamp.swampTile1",
             "sprites.castle.tileGrass3",
             "sprites.builtin.forestTiles3",
-            "myTile.shengyou_tile11"
+            "myTile.shengyou_tile11",
+            "sprites.builtin.forestTiles2",
+            "sprites.builtin.forestTiles4"
         ],
         "displayName": "shengyou_level1"
     },
