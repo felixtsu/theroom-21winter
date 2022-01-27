@@ -10,13 +10,16 @@ namespace SpriteKind {
 namespace shengyou_room{
 
 export function main() {
+    let 汉堡: Sprite = null
+    let 鸡腿: Sprite = null
+    let 面包: Sprite = null
     let LSY鬼: Sprite = null
     let LSYBoss: Sprite = null
     let LSY手雷: Sprite = null
     let LSY导弹: Sprite = null
     let LSY宝剑: Sprite = null
     let lsy勇士: Sprite = null
-    tiles.setTilemap(tilemap`级别1`)
+    tiles.setTilemap(tilemap`shengyou_level1`)
     game.splash("打败小怪和BOSS，就胜利。一定要小心！", "作者：黎X佑")
     lsy勇士 = sprites.create(img`
     . . . . . . f f f f . . . . . . 
@@ -36,25 +39,26 @@ export function main() {
     . . . f f f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+    info.setLife(100000)
     lsy勇士.setPosition(40, 99)
     controller.moveSprite(lsy勇士)
     scene.cameraFollowSprite(lsy勇士)
     LSY宝剑 = sprites.create(img`
-    . . . . . . . 8 . . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . . . . 8 8 8 . . . . . . . 
-    . . . 4 4 4 4 4 4 4 4 4 . . . . 
-    . . . 4 4 4 9 9 9 4 4 4 . . . . 
-    . . . . . . 9 5 9 . . . . . . . 
-    . . . . . . 9 5 9 . . . . . . . 
-    . . . . . . 9 5 9 . . . . . . . 
-    . . . . . . 9 9 9 . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . 1 d d d . . . . . . 
+    . . . . . 1 d d b d d . . . . . 
+    . . . . 1 d d d b d d d . . . . 
+    . . . . 1 d d d b d d d . . . . 
+    . . . . . 1 d d b d d . . . . . 
+    . . . . . 1 d d b d d . . . . . 
+    . . . . . 1 1 d b d d . . . . . 
+    . . . . . . 1 d b d . . . . . . 
+    . . . . . . 1 d d d . . . . . . 
+    . . . . . . c e e e . . . . . . 
+    . . . . . . c 2 5 2 . . . . . . 
+    . . . . . . . c 2 . . . . . . . 
+    . . . . . . . c 4 . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.LSYboujian)
     tiles.placeOnRandomTile(LSY宝剑, sprites.castle.tileGrass1)
@@ -126,81 +130,94 @@ export function main() {
     ....222.....222.....
     ....fff.....fff.....
     ...ffff.....ffff....
-    `, SpriteKind.Enemy)
-    sprite_hp.setHp(LSYBoss, 15)
+    `, SpriteKind.Boss)
+    sprite_hp.setHp(LSYBoss, 18)
     LSYBoss.setPosition(119, 100)
     LSYBoss.follow(lsy勇士, 7)
     for (let index = 0; index < 1; index++) {
         LSY鬼 = sprites.create(img`
-        ........................
-        ........................
-        ........................
-        ........................
-        ........................
-        ..........ffff..........
-        ........ff1111ff........
-        .......fb111111bf.......
-        .....fffc1111111f.......
-        ...fc111cd1111111f......
-        ...f1b1b1b1111dddf......
-        ...fbfbffcf11fcddf..c...
-        ......fcf111111bbf.cc...
-        .......ccbdb1b1fcf.cc...
-        .......fffbfbfdff.ccc...
-        ........ffffffff..cc....
-        ........fffffffffff.....
-        .........fffffc111cf....
-        .........fffff1b1b1f....
-        ..........ffffbfbfbf....
-        ...........ffff.........
-        ........................
-        ........................
-        ........................
+        . . . . . . 2 2 2 2 2 . . . . . 
+        . . . . . 2 f f f f f 2 . . . . 
+        . . . . 2 f f f 1 f f f 2 . . . 
+        . . . . 2 f f 1 f 1 f f 2 . . . 
+        . . . . 2 f f f 1 f f f 2 . . . 
+        . . . . 2 f f f f f f f 2 . . . 
+        . . . . . 2 f f f f f 2 . . . . 
+        . . . . . . 2 2 2 2 2 f . . . . 
+        . . . . . 2 2 2 2 2 f 2 2 . . . 
+        . . . . 2 2 2 2 2 f f 2 2 . . . 
+        . . . 2 f 2 2 2 f f 2 2 2 . . . 
+        f f f f f f f f f f f 2 2 . . . 
+        . . f f f f f f f f 2 . . . . . 
+        . . . . f . 2 2 f f 2 . . . . . 
+        . . . . . . f f . f f . . . . . 
+        . . . . . f f f . f f f . . . . 
         `, SpriteKind.GUI)
-        sprite_hp.setHp(LSY鬼, 5)
+        sprite_hp.setHp(LSY鬼, 10)
         LSY鬼.follow(lsy勇士, 4)
         LSY鬼.setPosition(13, 102)
-        if (sprite_hp.hpOfSprite(LSY鬼) == 0 && sprite_hp.hpOfSprite(LSYBoss) == 0) {
-            LSY鬼.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . 1 . . . . 
-            . . . . 1 . 1 . 1 . . . . . . . 
-            . . . . 1 . . . . . . . . . . . 
-            . . . . 1 . . . . . . . 1 . . . 
-            . . . . 1 . . 1 . 1 1 . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . 1 . . . 1 . 1 . . . 1 1 . . 
-            . . . . . . . . 1 . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . 1 . . . . 1 . . . 1 . . 1 . . 
-            . 1 . . . . . . . . . . . . . . 
-            . . . . . . . . 1 . . . . . . . 
-            . . . . . 1 . . . . . . . . . . 
-            `)
-            LSYBoss.setImage(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . 1 . . . . . . 
-            . . . . . 1 . . . . . . . 1 . . 
-            . . . . . . . . . . . . . . . . 
-            . . 1 . . . . 1 . . . . 1 . . . 
-            . . . . 1 . . . . . . . . . . . 
-            . . . . . . . . 1 . . 1 . . . . 
-            . . . . . . 1 . . . . . . . . . 
-            . . . 1 . . . . . . . . . . 1 . 
-            . . . . . . . . 1 . . 1 . . . . 
-            . 1 . . . . . . 1 . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . 1 . . . . . . . 
-            . . . . . 1 . . . . . . . . . . 
-            . . . . . . . . . . . . . 1 . . 
-            . . . . . . . . . . . . . . . . 
-            `)
-            gamejam.roomFinished(true)
-        }
+    }
+    for (let index = 0; index < 4; index++) {
+        面包 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . 4 4 4 4 4 4 . . . . . 
+        . . . 4 4 4 4 4 5 4 4 4 4 . . . 
+        . . 4 4 4 4 4 4 4 4 4 4 4 4 . . 
+        . . 4 4 4 5 4 4 4 4 4 4 4 4 . . 
+        . . 4 5 4 4 4 4 4 5 4 4 4 4 . . 
+        . . 4 4 4 4 4 4 4 4 4 4 4 4 . . 
+        . . 4 4 4 4 4 5 4 4 4 5 4 4 . . 
+        . . 4 5 4 5 4 4 4 4 4 4 4 4 . . 
+        . . 4 4 4 4 4 4 5 4 4 4 4 4 . . 
+        . . . 4 4 4 5 4 4 4 4 4 4 . . . 
+        . . . . 4 4 4 4 4 4 4 4 4 . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Food)
+        tiles.placeOnRandomTile(面包, sprites.builtin.forestTiles3)
+        鸡腿 = sprites.create(img`
+        . . 2 2 b b b b b . . . . . . . 
+        . 2 b 4 4 4 4 4 4 b . . . . . . 
+        2 2 4 4 4 4 d d 4 4 b . . . . . 
+        2 b 4 4 4 4 4 4 d 4 b . . . . . 
+        2 b 4 4 4 4 4 4 4 d 4 b . . . . 
+        2 b 4 4 4 4 4 4 4 4 4 b . . . . 
+        2 b 4 4 4 4 4 4 4 4 4 e . . . . 
+        2 2 b 4 4 4 4 4 4 4 b e . . . . 
+        . 2 b b b 4 4 4 b b b e . . . . 
+        . . e b b b b b b b e e . . . . 
+        . . . e e b 4 4 b e e e b . . . 
+        . . . . . e e e e e e b d b b . 
+        . . . . . . . . . . . b 1 1 1 b 
+        . . . . . . . . . . . c 1 d d b 
+        . . . . . . . . . . . c 1 b c . 
+        . . . . . . . . . . . . c c . . 
+        `, SpriteKind.Food)
+        tiles.placeOnRandomTile(鸡腿, sprites.builtin.forestTiles2)
+        汉堡 = sprites.create(img`
+        . . . . c c c b b b b b . . . . 
+        . . c c b 4 4 4 4 4 4 b b b . . 
+        . c c 4 4 4 4 4 5 4 4 4 4 b c . 
+        . e 4 4 4 4 4 4 4 4 4 5 4 4 e . 
+        e b 4 5 4 4 5 4 4 4 4 4 4 4 b c 
+        e b 4 4 4 4 4 4 4 4 4 4 5 4 4 e 
+        e b b 4 4 4 4 4 4 4 4 4 4 4 b e 
+        . e b 4 4 4 4 4 5 4 4 4 4 b e . 
+        8 7 e e b 4 4 4 4 4 4 b e e 6 8 
+        8 7 2 e e e e e e e e e e 2 7 8 
+        e 6 6 2 2 2 2 2 2 2 2 2 2 6 c e 
+        e c 6 7 6 6 7 7 7 6 6 7 6 c c e 
+        e b e 8 8 c c 8 8 c c c 8 e b e 
+        e e b e c c e e e e e c e b e e 
+        . e e b b 4 4 4 4 4 4 4 4 e e . 
+        . . . c c c c c e e e e e . . . 
+        `, SpriteKind.Food)
+        tiles.placeOnRandomTile(汉堡, sprites.builtin.forestTiles4)
     }
 
+ 
     controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         LSY导弹 = sprites.create(img`
         .........................
@@ -232,11 +249,14 @@ export function main() {
         LSY导弹.destroy()
         sprite_hp.changeHpOfSpriteBy(LSYBoss, -1)
         sprite_hp.changeHpOfSpriteBy(LSY鬼, -2)
+        LSYBoss.sayText(sprite_hp.hpOfSprite(LSYBoss))
+        LSY鬼.sayText(sprite_hp.hpOfSprite(LSY鬼))
         LSYBoss.x += -17
         LSY鬼.x += -19
     })
     sprites.onOverlap(SpriteKind.Player, SpriteKind.GUI, function (sprite, otherSprite) {
-
+        info.changeLifeBy(-1)
+        pause(1000)
     })
     sprites.onOverlap(SpriteKind.Player, SpriteKind.LSYwuqi, function (sprite, otherSprite) {
         otherSprite.destroy()
@@ -272,11 +292,13 @@ export function main() {
         LSY手雷.destroy()
         sprite_hp.changeHpOfSpriteBy(LSYBoss, -1)
         sprite_hp.changeHpOfSpriteBy(LSY鬼, -3)
+        LSYBoss.sayText(sprite_hp.hpOfSprite(LSYBoss))
+        LSY鬼.sayText(sprite_hp.hpOfSprite(LSY鬼))
         LSYBoss.x += 16
         LSY鬼.x += 18
     })
     info.onLifeZero(function () {
-        game.over(false, effects.melt)
+        gamejam.roomFinished(false)
         lsy勇士.setImage(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -316,6 +338,10 @@ export function main() {
         .....ff..ff.............
         `)
         LSY宝剑.destroy()
+    })
+    sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+        otherSprite.destroy(effects.coolRadial, 100)
+        info.changeLifeBy(3)
     })
     controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
         lsy勇士.setImage(img`
@@ -368,20 +394,63 @@ export function main() {
         `)
         sprite_hp.changeHpOfSpriteBy(LSY鬼, -2)
         sprite_hp.changeHpOfSpriteBy(LSYBoss, -1)
+        LSY鬼.sayText(sprite_hp.hpOfSprite(LSY鬼))
+        LSYBoss.sayText(sprite_hp.hpOfSprite(LSYBoss))
         LSYBoss.y += 16
         LSY鬼.y += 18
-    })
-    sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-        sprite_hp.changeHpOfSpriteBy(LSY鬼, -1)
-        LSY鬼.sayText("NO")
-        pause(500)
-        sprite_hp.changeHpOfSpriteBy(LSYBoss, -2)
-        LSYBoss.sayText("No")
-        pause(500)
+        if (sprite_hp.hpOfSprite(LSYBoss) < 0) {
+            LSYBoss.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . 1 . . . . . . 
+            . . . . . 1 . . . . . . . 1 . . 
+            . . . . . . . . . . . . . . . . 
+            . . 1 . . . . 1 . . . . 1 . . . 
+            . . . . 1 . . . . . . . . . . . 
+            . . . . . . . . 1 . . 1 . . . . 
+            . . . . . . 1 . . . . . . . . . 
+            . . . 1 . . . . . . . . . . 1 . 
+            . . . . . . . . 1 . . 1 . . . . 
+            . 1 . . . . . . 1 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . 1 . . . . . . . 
+            . . . . . 1 . . . . . . . . . . 
+            . . . . . . . . . . . . . 1 . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+            LSYBoss.destroy()
+            info.changeScoreBy(2)
+        }
+        if (sprite_hp.hpOfSprite(LSY鬼) < 0) {
+            LSY鬼.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . 1 . . . . 
+            . . . . 1 . 1 . 1 . . . . . . . 
+            . . . . 1 . . . . . . . . . . . 
+            . . . . 1 . . . . . . . 1 . . . 
+            . . . . 1 . . 1 . 1 1 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . 1 . . . 1 . 1 . . . 1 1 . . 
+            . . . . . . . . 1 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . 1 . . . . 1 . . . 1 . . 1 . . 
+            . 1 . . . . . . . . . . . . . . 
+            . . . . . . . . 1 . . . . . . . 
+            . . . . . 1 . . . . . . . . . . 
+            `)
+            LSY鬼.destroy()
+            info.changeScoreBy(1)
+        }
+        if (info.score() == 3) {
+            gamejam.roomFinished(true)
+        }
     })
     sprites.onOverlap(SpriteKind.Player, SpriteKind.Boss, function (sprite, otherSprite) {
-
+        info.changeLifeBy(-2)
+        pause(1000)
     })
+    
   
 
 }
