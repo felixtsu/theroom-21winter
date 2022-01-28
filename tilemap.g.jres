@@ -142,6 +142,38 @@
         ],
         "displayName": "jason_level1"
     },
+     "tile1": {
+        "data": "hwQQABAAAAD//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "felix_level1": {
+        "id": "felix_level1",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAxMDAwMTAwMDAxMDIwMjAyMDIwMjAyMDIwMjAyMDIwMjAyMDIwMjAzMDgwYTBhMGEwYTBhMGEwOTBhMGEwYTBhMGEwYTBhMDQwODBhMGEwYTBhMGEwYTA5MGEwOTBhMGEwYTBhMGEwNDA4MGEwYTA5MDkwOTA5MDkwYTA5MGEwYTEyMTEwYTA0MDgwOTBhMGEwYTBhMGEwYTBhMGEwYTBhMDQwZDBhMDQwODA5MDkwOTBhMDkwOTA5MGEwOTBhMGEwNDBkMGEwNDA4MGEwYTBhMGEwYTBhMGEwYTA5MGExMjA1MGQwYTA0MDgwYTA5MGEwOTA5MDkwOTBhMDkwYTA0MTAwZDBhMDQwODBhMDkwYTBhMGEwYTBhMGEwOTBhMGYwYzBlMGEwNDA4MGEwOTBhMGEwYTBhMGEwYTBhMGEwOTBhMDkwYTA0MDgwYTBhMGEwYTA5MGEwYTA5MDkwOTBhMGEwOTBhMDQwODBhMDkwOTA5MDkwYTBhMGEwYTBhMGEwYTA5MDkwNDA4MGEwYTBhMGEwOTBhMGEwOTA5MDkwOTBhMGEwYTA0MDgwYTBhMDkwYTBhMGEwOTBhMGEwYTBhMGEwYTBhMDQwODBhMGEwOTBhMGEwYTA5MGEwYTBhMGEwYTBhMGIwNDA3MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA1MjIyMjIyMjIyMjIyMjIyMjAyMDAwMDIwMDAwMDAwMjAwMjAwMDAyMDIwMDAwMDIwMDIyMDIyMjIyMDAwMjIyMDIyMDAwMDAwMDAwMDIyMjAyMjIyMjAyMjIwMDAyMjIwMDIwMDAwMDAyMDIwMjIyMDAyMDIyMjIyMjAyMDIwMjAwMjAyMDAwMDIwMjAyMjIwMDIwMjAwMDAwMDIwMjAyMDAyMDAyMDAwMjIwMjIwMjAwMjIyMjIwMDAwMDAyMDIyMDIwMDIwMDAyMjIyMDAyMDAyMjAwMDIwMDAwMDAwMjAwMjIwMDAyMDAwMDAwMDIwMjIyMjIyMjIyMjIyMjIyMg==",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.dungeon.greenOuterNorthWest",
+            "sprites.dungeon.greenOuterNorth0",
+            "sprites.dungeon.greenOuterNorthEast",
+            "sprites.dungeon.greenOuterEast0",
+            "sprites.dungeon.greenOuterSouthWest",
+            "sprites.dungeon.greenOuterSouth1",
+            "sprites.dungeon.greenOuterSouthEast",
+            "sprites.dungeon.greenOuterWest0",
+            "sprites.dungeon.stairLadder",
+            "sprites.dungeon.floorLight2",
+            "sprites.dungeon.chestClosed",
+            "sprites.dungeon.greenSwitchUp",
+            "sprites.dungeon.greenOuterWest1",
+            "sprites.dungeon.greenInnerSouthEast",
+            "sprites.dungeon.greenInnerSouthWest",
+            "myTiles.tile1",
+            "sprites.dungeon.greenInnerNorthEast",
+            "sprites.dungeon.greenInnerNorthWest"
+        ],
+        "displayName": "felix_level1"
+    },
        "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
